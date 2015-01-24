@@ -1,0 +1,88 @@
+# Server:
+
+## Update
+apt-get update; apt-get dist-upgrade
+
+vim ~/.bashrc
+cat ~/.bashrc > /etc/skel/.bashrc
+
+## Locales
+vim /var/lib/locales/supported.d/local
+ru_UA.UTF-8 UTF-8
+
+vim /var/lib/locales/supported.d/en
+en_US.UTF-8 UTF-8
+
+vim /etc/default/locale
+LANG="ru_UA.UTF-8"
+LANGUAGE="ru_UA:ru"
+LC_ALL="ru_UA.UTF-8"
+
+rm -rfv /usr/lib/locale/*
+locale-gen
+reboot
+
+
+## System
+apt-get install htop iotop vim git curl mysql-server redis-server
+apt-get install python-software-properties
+
+## PHP Dependencies
+apt-get install php5-fpm php5-cli php-apc php5-mcrypt php5-curl php5-imagick php5-mysql
+
+## Ruby
+apt-add-repository ppa:brightbox/ruby-ng
+apt-get update
+
+apt-get install ruby2.2 ruby2.2-dev
+apt-get install ruby ruby-switch
+ruby-switch --set ruby2.2
+
+ruby --version
+
+## Nginx
+chmod +x nginx.sh
+apt-get install build-essential
+apt-get install libcurl4-openssl-dev
+apt-get install ruby2.2-dev
+
+vim /etc/nginx/nginx.conf
+vim /etc/nginx/fastcgi_common
+mkdir /etc/nginx/sites-available
+mkdir /etc/nginx/sites-enabled
+
+vim /etc/init.d/nginx
+chmod +x /etc/init.d/nginx
+update-rc.d nginx defaults
+service nginx restart
+
+## php-fpm
+vim /etc/init/php5-fpm.conf
+service php5-fpm restart
+
+## System Users
+adduser --disabled-password www-pma
+
+
+## Nginx virtual host
+vim /etc/nginx/sites-available/pma
+ln -sv /etc/nginx/sites-available/pma /etc/nginx/sites-enabled/pma
+
+## php5-fpm pool
+cd /etc/php5/fpm/pool.d/pma.conf
+
+service php5-fpm restart
+service nginx restart
+
+## MYSQL
+CREATE DATABASE DATABASE_NAME;
+
+CREATE USER 'USER'@'localhost' IDENTIFIED BY 'PASSWORD';
+GRANT ALL PRIVILEGES ON DATABASE_NAME.* TO 'USER'@'localhost';
+FLUSH PRIVILEGES;
+
+
+vim ~/.my.cnf
+[client]
+user=USER
+password=PASSWORD

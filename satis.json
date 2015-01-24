@@ -1,0 +1,28 @@
+{
+    "name":         "Odesskij Private",
+    "homepage":     "http://composer.odesskij.branderstudio.com/",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@github.com:odesskij/silex-standard.git"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@github.com:odesskij/GeneratorBundle.git"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@github.com:odesskij/redis-bundle.git"
+        },
+        {
+            "type": "vcs",
+            "url":  "git@github.com:odesskij/symfony-standard.git"
+        }
+    ],
+    "archive":      {
+        "directory": "dist",
+        "format":    "tar",
+        "skip-dev":  false
+    },
+    "require-all":  true
+}
