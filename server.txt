@@ -71,6 +71,10 @@ ln -sv /etc/nginx/sites-available/pma /etc/nginx/sites-enabled/pma
 ## php5-fpm pool
 cd /etc/php5/fpm/pool.d/pma.conf
 
+## php mods
+php5enmod mcrypt
+apt-get install php5-gd
+
 service php5-fpm restart
 service nginx restart
 
