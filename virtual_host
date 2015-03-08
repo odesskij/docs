@@ -2,15 +2,8 @@ server {
     listen 80;
     listen [::]:80;
 
-    server_name www.iwin.test;
-    return 301 $scheme://iwin.test$request_uri;
-}
-server {
-    listen 80;
-    listen [::]:80;
-
-    server_name iwin.test;
-    root /home/bogdan/projects/iwant/www/web;
+    server_name iwin.o.o;
+    root /home/user/projects/iwin/web;
 
     disable_symlinks off;
     client_max_body_size 500M;
@@ -22,6 +15,9 @@ server {
     }
 
     location ~ \.php$ {
+       fastcgi_param  SYMFONY_ENV        dev;
+       fastcgi_param  SYMFONY_APPNAME    iwin;
+       fastcgi_pass unix:/var/run/php5-fpm.sock;
        include fastcgi_common;
     }
 }
