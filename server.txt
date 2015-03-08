@@ -22,15 +22,19 @@ rm -rfv /usr/lib/locale/*
 locale-gen
 reboot
 
+-------------------------------------
 
 ## System
-apt-get install htop iotop vim git curl mysql-server redis-server python-software-properties libcurl4-openssl-dev build-essential
+apt-get update && apt-get install htop mc iotop vim git curl mysql-server redis-server python-software-properties libcurl4-openssl-dev build-essential
 apt-add-repository ppa:brightbox/ruby-ng
 apt-get update
-apt-get install php5-fpm php5-cli php-apc php5-mcrypt php5-curl php5-imagick php5-mysql ruby2.2 ruby2.2-dev ruby ruby-switch
+apt-get install php5-fpm php5-cli php-apc php5-mcrypt php5-gd php5-intl php5-curl php5-imagick php5-mysql ruby2.2 ruby2.2-dev ruby ruby-switch
 
 ruby-switch --set ruby2.2
 ruby --version
+
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
 
 ## Nginx
 chmod +x nginx.sh && ./nginx.sh
@@ -44,8 +48,9 @@ cat ./init-d_nginx > /etc/init.d/nginx
 chmod +x /etc/init.d/nginx
 update-rc.d nginx defaults
 service nginx restart
-## php-fpm
 service php5-fpm restart
+
+-------------------------------------
 
 ## System Users
 adduser --disabled-password www-pma
@@ -59,10 +64,11 @@ cd /etc/php5/fpm/pool.d/pma.conf
 
 ## php mods
 php5enmod mcrypt
-apt-get install php5-gd
 
 service php5-fpm restart
 service nginx restart
+
+-------------------------------------
 
 ## MYSQL
 CREATE DATABASE DATABASE_NAME;
@@ -75,3 +81,7 @@ vim ~/.my.cnf
 [client]
 user=USER
 password=PASSWORD
+
+-------------------------------------
+
+gem install sass --user-install
