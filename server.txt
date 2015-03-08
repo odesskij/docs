@@ -3,8 +3,8 @@
 ## Update
 apt-get update; apt-get dist-upgrade
 
-vim ~/.bashrc
-cat ~/.bashrc > /etc/skel/.bashrc
+cat ./.bashrc > ~/.bashrc
+cat ./.bashrc > /etc/skel/.bashrc
 
 ## Locales
 vim /var/lib/locales/supported.d/local
@@ -24,45 +24,31 @@ reboot
 
 
 ## System
-apt-get install htop iotop vim git curl mysql-server redis-server
-apt-get install python-software-properties
-
-## PHP Dependencies
-apt-get install php5-fpm php5-cli php-apc php5-mcrypt php5-curl php5-imagick php5-mysql
-
-## Ruby
+apt-get install htop iotop vim git curl mysql-server redis-server python-software-properties libcurl4-openssl-dev build-essential
 apt-add-repository ppa:brightbox/ruby-ng
 apt-get update
+apt-get install php5-fpm php5-cli php-apc php5-mcrypt php5-curl php5-imagick php5-mysql ruby2.2 ruby2.2-dev ruby ruby-switch
 
-apt-get install ruby2.2 ruby2.2-dev
-apt-get install ruby ruby-switch
 ruby-switch --set ruby2.2
-
 ruby --version
 
 ## Nginx
-chmod +x nginx.sh
-apt-get install build-essential
-apt-get install libcurl4-openssl-dev
-apt-get install ruby2.2-dev
+chmod +x nginx.sh && ./nginx.sh
 
-vim /etc/nginx/nginx.conf
-vim /etc/nginx/fastcgi_common
+cat ./nginx.conf > /etc/nginx/nginx.conf
+cat ./fastcgi_common > /etc/nginx/fastcgi_common
 mkdir /etc/nginx/sites-available
 mkdir /etc/nginx/sites-enabled
 
-vim /etc/init.d/nginx
+cat ./init-d_nginx > /etc/init.d/nginx
 chmod +x /etc/init.d/nginx
 update-rc.d nginx defaults
 service nginx restart
-
 ## php-fpm
-vim /etc/init/php5-fpm.conf
 service php5-fpm restart
 
 ## System Users
 adduser --disabled-password www-pma
-
 
 ## Nginx virtual host
 vim /etc/nginx/sites-available/pma
@@ -84,7 +70,6 @@ CREATE DATABASE DATABASE_NAME;
 CREATE USER 'USER'@'localhost' IDENTIFIED BY 'PASSWORD';
 GRANT ALL PRIVILEGES ON DATABASE_NAME.* TO 'USER'@'localhost';
 FLUSH PRIVILEGES;
-
 
 vim ~/.my.cnf
 [client]
