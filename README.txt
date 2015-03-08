@@ -85,3 +85,5 @@ password=PASSWORD
 -------------------------------------
 
 gem install sass --user-install
+add-apt-repository ppa:webupd8team/java
+apt-get install oracle-java8-installer
