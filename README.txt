@@ -7,11 +7,13 @@ cat ./.bashrc > ~/.bashrc
 cat ./.bashrc > /etc/skel/.bashrc
 
 ## Locales
-vim /var/lib/locales/supported.d/local
-ru_UA.UTF-8 UTF-8
+#vim /var/lib/locales/supported.d/local
+#ru_UA.UTF-8 UTF-8
+echo "ru_UA.UTF-8 UTF-8" > /var/lib/locales/supported.d/local
 
-vim /var/lib/locales/supported.d/en
-en_US.UTF-8 UTF-8
+#vim /var/lib/locales/supported.d/en
+#en_US.UTF-8 UTF-8
+echo "en_US.UTF-8 UTF-8" > /var/lib/locales/supported.d/en
 
 vim /etc/default/locale
 LANG="ru_UA.UTF-8"
