@@ -1,8 +1,8 @@
-[www]
-prefix = /var/$pool
-user = bogdan
-group = bogdan
-listen = /var/run/php5-fpm.sock
+[pma]
+prefix = /home/www-$pool
+user = www-$pool
+group = www-$pool
+listen = /var/run/$pool.sock
 
 listen.owner = root
 listen.group = www-data
