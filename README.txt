@@ -62,7 +62,7 @@ vim /etc/nginx/sites-available/pma
 ln -sv /etc/nginx/sites-available/pma /etc/nginx/sites-enabled/pma
 
 ## php5-fpm pool
-cd /etc/php5/fpm/pool.d/pma.conf
+vim /etc/php5/fpm/pool.d/pma.conf
 
 ## php mods
 php5enmod mcrypt
