@@ -27,21 +27,21 @@ reboot
 -------------------------------------
 
 ## System
-apt-get update && apt-get install htop mc iotop vim git curl mysql-server redis-server python-software-properties libcurl4-openssl-dev build-essential
 apt-add-repository ppa:brightbox/ruby-ng
-apt-get update
-apt-get install php5-fpm php5-cli php-apc php5-mcrypt php5-gd php5-intl php5-curl php5-imagick php5-mysql ruby2.2 ruby2.2-dev ruby ruby-switch
+apt-get update && apt-get install htop mc iotop vim git curl mysql-server redis-server python-software-properties libcurl4-openssl-dev build-essential php5-fpm php5-cli php-apc php5-mcrypt php5-gd php5-intl php5-curl php5-imagick php5-mysql ruby2.2 ruby2.2-dev ruby ruby-switch
 
 ruby-switch --set ruby2.2
 ruby --version
 
+# composer
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 
 ## Nginx
 chmod +x nginx.sh && ./nginx.sh
 
-cat ./nginx.conf > /etc/nginx/nginx.conf
+mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak && cat ./nginx.conf > /etc/nginx/nginx.conf
+#cat ./nginx.conf > /etc/nginx/nginx.conf
 cat ./fastcgi_common > /etc/nginx/fastcgi_common
 mkdir /etc/nginx/sites-available
 mkdir /etc/nginx/sites-enabled
