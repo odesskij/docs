@@ -49,6 +49,9 @@ mkdir /etc/nginx/sites-enabled
 cat ./init-d_nginx > /etc/init.d/nginx
 chmod +x /etc/init.d/nginx
 update-rc.d nginx defaults
+
+cat ./init-php5-fpm.conf > /etc/init/php5-fpm.conf
+
 service nginx restart
 service php5-fpm restart
 
@@ -93,3 +96,51 @@ add-apt-repository ppa:webupd8team/java && apt-get update && apt-get install ora
 adduser --disabled-password www-pma
 sudo su - www-pma
 git clone https://github.com/phpmyadmin/phpmyadmin.git www
+vim /etc/nginx/sites-available/pma
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name pma.finbid.net;
+    root /home/www-pma/www;
+
+    disable_symlinks off;
+    client_max_body_size 500M;
+    error_log  /var/log/nginx/pma-error.log;
+    access_log /var/log/nginx/pma-access.log;
+
+    location / {
+        try_files $uri /index.php$is_args$args;
+    }
+
+    location ~ \.php$ {
+       fastcgi_pass unix:/var/run/pma.sock;
+       include fastcgi_common;
+    }
+}
+
+ln -sv /etc/nginx/sites-available/pma /etc/nginx/sites-enabled/pma
+
+vim /etc/php5/fpm/pool.d/pma.conf 
+[pma]
+prefix = /home/www-$pool
+user = www-$pool
+group = www-$pool
+listen = /var/run/$pool.sock
+
+listen.owner = root
+listen.group = www-data
+listen.mode = 0666
+
+pm = dynamic
+pm.max_children = 100
+pm.start_servers = 2
+pm.min_spare_servers = 1
+pm.max_spare_servers = 3
+
+chdir = /
+
+
+service php5-fpm restart
+service nginx restart
+
