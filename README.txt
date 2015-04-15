@@ -89,3 +89,7 @@ password=PASSWORD
 gem install sass --user-install
 add-apt-repository ppa:webupd8team/java && apt-get update && apt-get install oracle-java8-installer && java -version
 
+------------------------------------
+adduser --disabled-password www-pma
+sudo su - www-pma
+git clone https://github.com/phpmyadmin/phpmyadmin.git www
