@@ -144,3 +144,15 @@ chdir = /
 service php5-fpm restart
 service nginx restart
 
+------------------------------------
+## Fish
+sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt-get install fish 
+curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
+````
+...
+
+# Theme
+set fish_theme ocean
+...
+````
