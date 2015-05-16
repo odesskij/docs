@@ -149,6 +149,7 @@ service nginx restart
 sudo apt-add-repository ppa:fish-shell/release-2
 sudo apt-get install fish 
 curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
+vim .config/fish/config.fish
 ````
 ...
 
