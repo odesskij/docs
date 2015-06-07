@@ -146,17 +146,23 @@ service nginx restart
 
 ------------------------------------
 ## Fish
-sudo apt-add-repository ppa:fish-shell/release-2
-sudo apt-get install fish 
+sudo apt-add-repository ppa:fish-shell/release-2 && sudo apt-get update && sudo apt-get install fish 
 curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
 vim .config/fish/config.fish
 ````
 ...
 
-# Theme
+### Theme
 set fish_theme ocean
 ...
 ````
+## Terminator
+sudi apt-get install terminator
+### Color scheme
+1. https://github.com/mbadolato/iTerm2-Color-Schemes (Solarized Darcula)
+2. vim .config/terminator/config 
+
+------------------------------------
 ## Nodejs
 
 curl -sL https://deb.nodesource.com/setup | sudo bash -
