@@ -121,7 +121,7 @@ server {
 
 ln -sv /etc/nginx/sites-available/pma /etc/nginx/sites-enabled/pma
 
-vim /etc/php5/fpm/pool.d/pma.conf 
+vim /etc/php5/fpm/pool.d/pma.conf
 [pma]
 prefix = /home/www-$pool
 user = www-$pool
@@ -144,23 +144,6 @@ chdir = /
 service php5-fpm restart
 service nginx restart
 
-------------------------------------
-## Fish
-sudo apt-add-repository ppa:fish-shell/release-2 && sudo apt-get update && sudo apt-get install fish 
-curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
-vim .config/fish/config.fish
-````
-...
-
-### Theme
-set fish_theme ocean
-...
-````
-## Terminator
-sudi apt-get install terminator
-### Color scheme
-1. https://github.com/mbadolato/iTerm2-Color-Schemes (Solarized Darcula)
-2. vim .config/terminator/config 
 
 ------------------------------------
 ## Nodejs
@@ -180,7 +163,7 @@ server {
     disable_symlinks off;
     client_max_body_size 500M;
     error_log  /opt/bower/log_error.log;
-    access_log /opt/bower/log-access.log; 
+    access_log /opt/bower/log-access.log;
 
     location / {
         proxy_pass       http://localhost:5678;
@@ -189,5 +172,3 @@ server {
     }
 }
 `````
-
-
