@@ -1,5 +1,9 @@
 #Local:
 
+````bash
+apt-get install git curl vim
+````
+
 ## fish (friendly interactive shell)
 ````bash
 sudo apt-add-repository ppa:fish-shell/release-2 && sudo apt-get update && sudo apt-get install fish
@@ -9,9 +13,7 @@ curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fis
 vim .config/fish/config.fish:
 ````fish
 ...
-
-### Theme
-set fish_theme ocean
+Theme 'ocean'
 ...
 ````
 
