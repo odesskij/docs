@@ -72,9 +72,8 @@ sudo apt-get install terminator
 1. http://www.thekelleys.org.uk/dnsmasq/doc.html
 
 ## Atom (atom.io: A hackable text editor for the 21st Century)
+https://atom.io/ -> download .deb
 ````fish
-wget https://atom.io/download/deb -o atom.deb; and sudo dpkg -i atom.deb
-
 apm install vim-mode atom-terminal git-plus language-fish-shell markdown-writer php-twig solarized-dark-ui language-nginx
 ````
 ##Oracle Java
