@@ -10,6 +10,7 @@ sudo apt-add-repository ppa:fish-shell/release-2 && sudo apt-get update && sudo 
 ````
 ### oh-my-fish
 curl -L https://github.com/bpinto/oh-my-fish/raw/master/tools/install.fish | fish
+
 vim .config/fish/config.fish:
 ````fish
 ...
@@ -24,6 +25,34 @@ sudo apt-get install terminator
 ### Color scheme
 1. https://github.com/mbadolato/iTerm2-Color-Schemes (Solarized Darcula)
 2. vim .config/terminator/config
+
+.config/terminator/config: 
+````
+[global_config]
+  title_transmit_bg_color = "#4070b2"
+  inactive_color_offset = 0.84
+[keybindings]
+[profiles]
+  [[default]]
+    palette = "#25292a:#f24840:#629655:#b68800:#2075c7:#797fd4:#15968d:#d2d8d9:#25292a:#f24840:#629655:#b68800:#2075c7:#797fd4:#15968d:#d2d8d9"
+    background_darkness = 0.9
+    background_type = transparent
+    background_image = None
+    cursor_color = "#708284"
+    foreground_color = "#d2d8d9"
+    background_color = "#3d3f41"
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
+
+````
 
 ##vim
 ###Vundle
