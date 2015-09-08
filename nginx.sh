@@ -1,6 +1,6 @@
 #!/bin/sh
  
-NGINX_VERSION=1.7.8
+NGINX_VERSION=1.9.4
 TMP_PATH=/tmp
  
 # Fetch and extract Nginx
