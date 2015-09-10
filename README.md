@@ -138,7 +138,7 @@ chdir = /
 ##mysql
 ````sql
 #database
-CREATE DATABASE DATABASE_NAME;
+CREATE DATABASE `DATABASE_NAME` CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 #user
 CREATE USER 'USER'@'localhost' IDENTIFIED BY 'PASSWORD';
