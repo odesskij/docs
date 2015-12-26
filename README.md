@@ -154,8 +154,16 @@ user=USER\n\
 password=PASSWORD" > ~/.my.cnf
 ````
 
-## Nodejs
+## Nodejs 
+
+### 5.x
 ````bash
-curl -sL https://deb.nodesource.com/setup | sudo bash -
-apt-get update && apt-get install nodejs
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+sudo apt-get install -y nodejs
 ````
+
+### 4.x
+````bash
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
