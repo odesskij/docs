@@ -156,6 +156,9 @@ password=PASSWORD" > ~/.my.cnf
 
 ## Nodejs 
 
+> nodejs distributions
+> https://github.com/nodesource/distributions
+
 ### 5.x
 ````bash
 curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
