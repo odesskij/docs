@@ -193,7 +193,7 @@ sudo touch pm2.toy
 sudo chmod 755 pm2.toy
 vim pm2.toy
 ```
-As source get file ```pm2.daemon.example``` [] and change lines: 
+As source get file  [pm2.daemon.example](https://raw.githubusercontent.com/odesskij/docs/master/pm2.daemon.example) and change lines: 
 ```txt
  USER
  export PM2_HOME="/home/www-eventbox/.pm2"
