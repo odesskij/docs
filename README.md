@@ -170,3 +170,38 @@ sudo apt-get install -y nodejs
 curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
+
+### PM2 daemon
+
+#### Latest node
+
+````bash
+node -v
+sudo npm install n -g
+sudo n latest
+exit
+node -v
+```
+#### PM2
+```bash
+sudo npm install -g pm2
+pm2 status
+
+sudo service --status-all
+cd /etc/init.d
+sudo touch pm2.toy
+sudo chmod 755 pm2.toy
+vim pm2.toy
+```
+As source get file ```pm2.daemon.example``` [] and change lines: 
+```txt
+ USER
+ export PM2_HOME="/home/www-eventbox/.pm2"
+```
+than
+```bash
+sudo update-rc.d pm2.toy defaults
+sudo service --status-all
+sudo service pm2.toy start
+sudo service pm2.toy status
+```
