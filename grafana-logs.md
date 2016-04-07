@@ -105,7 +105,7 @@ log {source(nginx_local); destination(d_access);};
 ```bash
 server {
     listen      80;
-    server_name lpadmin.kyivstar.branderstudio.com;
+    server_name YOUR_AWSOME_DOMAIN;
 
     location / {
         root /home/www-lp/www;
@@ -121,7 +121,7 @@ server {
 
 server {
     listen 80;
-    server_name influx.lpadmin.kyivstar.branderstudio.com;
+    server_name YOUR_AWSOME_DOMAIN;
 
     access_log /var/log/nginx/inluxaccess.log;
     error_log /var/log/nginx/influxerror.log;
