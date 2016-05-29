@@ -1,3 +1,21 @@
+# Table Of Concept
+* [Common](./sections/common.md)
+* [MySQL](./sections/mysql.md)
+* [PostgreSQL](./sections/postgresql.md)
+* [Nginx](./sections/nginx.md)
+* Nodejs
+    * [6.x](./sections/nodejs6.x.md)
+* PHP
+    * [5.6](./sections/php5.6.md)
+    * [7.0](./sections/php7.0.md)
+    * [Composer](./sections/php-composer.md)
+    * [PHPMyAdmin](./sections/phpmyadmin.md)
+* Ruby
+    * [1.9](./sections/ruby1.9.md)
+
+# **DEPRECATED!**
+> **все что написано ниже считается устаревшим и не соответствует реальности.**
+ 
 # Remote:
 
 ## Update
@@ -147,6 +165,7 @@ CREATE USER 'USER'@'localhost' IDENTIFIED BY 'PASSWORD';
 GRANT ALL PRIVILEGES ON DATABASE_NAME.* TO 'USER'@'localhost';
 FLUSH PRIVILEGES;
 ````
+
 ###.my.cnf
 ````bash
 echo -e "[client]\n\
