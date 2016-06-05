@@ -14,6 +14,9 @@ apt-get update
 apt-get install -y docker-engine
 ```
 
+### Mint
+[Install-Docker-on-Linux-Mint](https://gist.github.com/sirkkalap/e87cd580a47b180a7d32)
+
 ## install docker-compose
 
 ```bash
