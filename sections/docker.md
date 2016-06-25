@@ -15,7 +15,12 @@ apt-get install -y docker-engine
 ```
 
 ### Mint
-[Install-Docker-on-Linux-Mint](https://gist.github.com/sirkkalap/e87cd580a47b180a7d32)
+```bash
+# For Linux Mint Rebecca 17.1
+# replace one line in ^above bash recipe^
+echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" > /etc/apt/sources.list.d/docker.list
+```
+~~[Install-Docker-on-Linux-Mint](https://gist.github.com/sirkkalap/e87cd580a47b180a7d32)~~
 
 ## install docker-compose
 
