@@ -13,6 +13,15 @@ apt-get update
 ```bash
 apt-get install -y docker-engine
 ```
+### Use docker without sudo
+```bash
+# add current user to docker group
+sudo gpasswd -a ${USER} docker
+# test
+id
+# for mint users before every usage
+sudo su ${USER}
+```
 
 ### Mint
 ```bash
