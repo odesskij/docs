@@ -1,3 +1,4 @@
+# Install docker
 ## repository
 
 ```bash
@@ -8,28 +9,18 @@ echo "deb https://apt.dockerproject.org/repo ubuntu-$DISTRIB_CODENAME main" > /e
 apt-get update
 ```
 
-## install
-
-```bash
-apt-get install -y docker-engine
-```
-### Use docker without sudo
-```bash
-# add current user to docker group
-sudo gpasswd -a ${USER} docker
-# test
-id
-# for mint users before every usage
-sudo su ${USER}
-```
-
-### Mint
+#### Mint
 ```bash
 # For Linux Mint Rebecca 17.1
 # replace one line in ^above bash recipe^
 echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" > /etc/apt/sources.list.d/docker.list
 ```
-~~[Install-Docker-on-Linux-Mint](https://gist.github.com/sirkkalap/e87cd580a47b180a7d32)~~
+
+## install
+
+```bash
+apt-get install -y docker-engine
+```
 
 ## install docker-compose
 
@@ -38,7 +29,19 @@ curl -L https://github.com/docker/compose/releases/download/1.8.1/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 
-## install docker-machine (for docker remote)
+## Use docker without sudo
+#### Very often ubuntu terminal need to be reloaded, quick way **log out** and **log in**
+```bash
+# add current user to docker group
+sudo gpasswd -a ${USER} docker
+# test
+id | grep docker # if you don't see docker
+sudo su ${USER}
+id | grep docker # and now see, then relogin
+```
+
+
+## install docker-machine (for docker *remote*)
 
 [docker-machine](https://docs.docker.com/machine/overview/)
 
