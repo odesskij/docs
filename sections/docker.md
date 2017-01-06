@@ -35,7 +35,15 @@ chmod +x /usr/local/bin/docker-compose
 #### Very often ubuntu terminal need to be reloaded, quick way **log out** and **log in**
 ```bash
 # add current user to docker group
+# you can use on of this two commands
+# this
+usermod -aG docker ${USER}
+# bash will substitute user with current user (jenkins - for example), do not run it as *root*:
+# usermod -aG docker jenkins
+
+# or this
 sudo gpasswd -a ${USER} docker
+
 # test
 id | grep docker # if you don't see docker
 sudo su ${USER}
