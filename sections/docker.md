@@ -29,11 +29,14 @@ apt-get install -y docker-engine
 
 ## install docker-compose
 
+#### Recomend got to oficial instruction
+[official instruction](https://github.com/docker/compose/releases/)
+
+#### Not actual information
 ```bash
-curl -L https://github.com/docker/compose/releases/download/1.9.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.10.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
-[official](https://github.com/docker/compose/releases/)
 
 ## Use docker without sudo
 #### Very often ubuntu terminal need to be reloaded, quick way **log out** and **log in**
