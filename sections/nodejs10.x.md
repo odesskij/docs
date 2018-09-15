@@ -1,4 +1,4 @@
-## install nodejs8.x
+## install nodejs10.x
 
 ```bash
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
@@ -12,7 +12,7 @@ npm install -g n
 n latest
 ```
 
-> Tested on Ubuntu 14.04, Mint 19 Tara
+> Tested on Mint 19 Tara
 
 Or via [_nvm_](https://github.com/creationix/nvm#install-script)
 
