@@ -1,12 +1,18 @@
 ## update and upgrade
 
 ```bash
+add-apt-repository ppa:git-core/ppa
+#add-apt-repository ppa:andol/curl-http2
+#add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+
 apt-get update && apt-get dist-upgrade
 ```
 
 ## install
 
 ```bash
+apt-get install -y pwgen htop mc vim git curl iotop libcurl4-openssl-dev
+# qbittorrent
 apt-get install -y software-properties-common pwgen htop mc vim git curl libcurl4-openssl-dev build-essential
 ```
 
