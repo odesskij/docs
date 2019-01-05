@@ -4,6 +4,7 @@
 add-apt-repository ppa:git-core/ppa
 #add-apt-repository ppa:andol/curl-http2
 #add-apt-repository ppa:qbittorrent-team/qbittorrent-stable
+#add-apt-repository ppa:team-xbmc/ppa
 
 apt-get update && apt-get dist-upgrade
 ```
