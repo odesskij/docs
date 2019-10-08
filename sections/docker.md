@@ -1,17 +1,8 @@
 # Install docker
 ## repository
 
-```bash
-sudo -s
-apt-get install -y apt-transport-https ca-certificates
-apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-. /etc/lsb-release
-# Linux Mint explained bellow
-# This line is for Ubuntu only
-echo "deb https://apt.dockerproject.org/repo ubuntu-$DISTRIB_CODENAME main" > /etc/apt/sources.list.d/docker.list
-apt-get update
-exit
-```
+[Oficcial instructions](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
 
 #### Mint
 ```bash
@@ -24,12 +15,8 @@ echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" > /etc/apt/sour
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo apt-get install -y docker-ce
-```
-
-## install
-
-```bash
-apt-get install -y docker-engine
+# All LMs
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
 ```
 
 ## install docker-compose
