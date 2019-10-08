@@ -19,8 +19,11 @@ sudo apt purge openjdk*
 # old
 apt-get install -y oracle-java8-installer
 # new
-apt-get install -y oracle-java11-installer
+apt-get install -y oracle-java13-installer
 java -version
+# very new :)
+https://www.linuxuprising.com/2019/06/new-oracle-java-11-installer-for-ubuntu.html
+apt-get install -y oracle-java11-installer-local
 ```
 
 ## if there is no *add-apt-repository* [add it](./common.md)
