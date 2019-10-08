@@ -26,7 +26,12 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 
 #### Not actual information
 ```bash
-curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+# check integrety
+## manually
+sha256sum /usr/local/bin/docker-compose
+## automaitc
+echo 'cfb3439956216b1248308141f7193776fcf4b9c9b49cbbe2fb07885678e2bb8a  /usr/local/bin/docker-compose' | sha256sum --check || sleep 180
 chmod +x /usr/local/bin/docker-compose
 ```
 
