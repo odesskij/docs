@@ -11,12 +11,15 @@
 echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" > /etc/apt/sources.list.d/docker.list
 # For Linux Mint 18 "Sarah" (and other based on Ubuntu Xenial 16.04)
 echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" > /etc/apt/sources.list.d/docker.list
-# or Linux Mint 19 "Tara"
+# or Linux Mint 19 "Tara" and "Tina"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo apt-get install -y docker-ce
 # All LMs
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
+## or
+sudo add-apt-repository "deb https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
+
 ```
 
 ## install docker-compose
@@ -26,12 +29,12 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 
 #### Not actual information
 ```bash
-curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 # check integrety
 ## manually
 sha256sum /usr/local/bin/docker-compose
 ## automaitc
-echo 'cfb3439956216b1248308141f7193776fcf4b9c9b49cbbe2fb07885678e2bb8a  /usr/local/bin/docker-compose' | sha256sum --check || sleep 180
+echo '2bdab0bbf42583b4b77ee015cf908933c78f0572a7cb949a7dd8e200e6250221  /usr/local/bin/docker-compose' | sha256sum --check || sleep 180
 chmod +x /usr/local/bin/docker-compose
 ```
 
@@ -54,16 +57,3 @@ sudo su ${USER}
 id | grep docker # and now see, then relogin
 ```
 
-
-## install docker-machine (for docker *remote*)
-
-[docker-machine](https://docs.docker.com/machine/overview/)
-
-```bash
-curl -L https://github.com/docker/machine/releases/download/v0.7.0/docker-machine-`uname -s`-`uname -m` > /usr/local/bin/docker-machine
-chmod +x /usr/local/bin/docker-machine
-docker-machine create --driver generic --generic-ip-address=IP --generic-ssh-user=USER --generic-ssh-key=~/.ssh/id_rsa
-docker-machine env DOCKER_MACHINE_NAME
-```
-
-> Tested on ubuntu 14.04
